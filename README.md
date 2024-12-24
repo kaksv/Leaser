@@ -34,6 +34,46 @@ To facilitate the cross-chain leasing protocol, several precompiles will be defi
 ```
 ```
 
-- Purpose: Ensures that assets can be moved seamlessly between chains while maintaining ownership records.
+- **Purpose:** Ensures that assets can be moved seamlessly between chains while maintaining ownership records.
 
 **2. Lease Agreement Precompile:**
+- Functionality: Manages the creation and validation of lease agreements between borrowers and lenders.
+- Example Function:
+  ```
+  function createLeaseAgreement(address borrower, address asset,
+   uint256 amount, uint256 duration)
+  external returns (bytes32 leaseId);
+```
+```
+
+- **Purpose:** Facilitates the initiation of lease contracts with predefined terms.
+
+  **3.Liquidation Precompile:**
+
+- Functionality: Executes partial liquidation of assets when certain risk thresholds are met.
+- Example Function:
+  ```
+  function executeLiquidation(bytes32 leaseId)
+  external returns (bool);
+  ```
+
+  
+- **Purpose:** Protects lenders by allowing for controlled liquidation of collateral in case of price drops.
+
+- Functionality: Handles repayments from borrowers back to Nolus.
+- Example Function:
+  ```
+  function repayLease(bytes32 leaseId, uint256 amount)
+   external returns (bool);
+  ```
+
+- **Purpose:** Ensures that repayments are processed efficiently and recorded accurately across both chains.
+
+### Benefits of the Cross-Chain Leasing Protocol
+- Enhanced Liquidity Access: Users can leverage liquidity from both Nolus and Optimism, allowing for more flexible asset management.
+- Ownership Retention: Borrowers maintain ownership of their assets while utilizing them for loans or leases, reducing counterparty risks.
+- Reduced Liquidation Risks: The partial liquidation strategy minimizes losses during adverse market conditions.
+- Streamlined Transactions: Using precompiles ensures that operations are executed quickly and efficiently across chains.
+
+The proposed cross-chain leasing protocol on Nolus for Optimism represents a significant advancement in DeFi lending solutions. By employing precompiles for critical functions, this protocol aims to create a robust ecosystem where users can lease assets across chains with ease while maintaining control over their investments. This innovative approach not only enhances functionality but also positions Nolus at the forefront of cross-chain DeFi solutions.
+

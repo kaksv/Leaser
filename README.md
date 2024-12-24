@@ -28,9 +28,11 @@ To facilitate the cross-chain leasing protocol, several precompiles will be defi
 
 - Functionality: Allows for the secure transfer of assets from Nolus to Optimism.
 - Example Function:
-  ```
-  function transferAsset(address from, address to, uint256 amount) external returns (bool);
-```
+  ~
+  function transferAsset(address from, address to, uint256 amount)
+  external returns (bool);
+~
+
 - Purpose: Ensures that assets can be moved seamlessly between chains while maintaining ownership records.
 
 **2. Lease Agreement Precompile:**
